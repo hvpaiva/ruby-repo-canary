@@ -127,6 +127,13 @@ jobs:
         with:
           name: release-gem
           path: pkg
+      # Canary-only fixture: exercise recovery after RubyGems has accepted 0.1.1.
+      # Retrying only this job keeps the already-published gem and signed tag intact.
+      - name: Inject the one-time partial-publication failure
+        if: github.ref == 'refs/tags/v0.1.1' && github.run_attempt == '1'
+        run: |
+          echo '::error::Expected canary recovery exercise: RubyGems succeeded; retry only github-release.'
+          exit 73
       - name: Verify the artifact and publish release notes
         env:
           GH_TOKEN: ${{ github.token }}
