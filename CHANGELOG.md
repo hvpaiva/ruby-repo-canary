@@ -4,6 +4,11 @@ All notable user-visible changes are documented here.
 
 ## [Unreleased]
 
+### Changed
+
+- Adopt ruby-repo-kit 0.1.1 for early lockfile checksum validation and stronger installed-package isolation.
+- Exercise recovery of GitHub Release creation after successful RubyGems publication, preserving the published gem and signed tag.
+
 ## [0.1.0] - 2026-10-05
 
 ### Added
