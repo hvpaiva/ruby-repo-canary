@@ -1,0 +1,26 @@
+---
+schema: 1
+name: ruby-repo-canary
+repository: hvpaiva/ruby-repo-canary
+version_file: lib/ruby_repo_canary/version.rb
+gemspec: ruby-repo-canary.gemspec
+changelog: CHANGELOG.md
+generated_paths: []
+generate_command:
+- bundle
+- exec
+- rake
+- generate
+check_command:
+- bundle
+- exec
+- rake
+- check
+required_checks:
+- quality
+- commits
+- audit
+- fresh-dependencies
+- test (ubuntu-latest, 3.4)
+- test (ubuntu-latest, 4.0)
+- test (macos-latest, 4.0)
